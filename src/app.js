@@ -53,6 +53,11 @@ if (config.env === 'production') {
 // v1 api routes
 app.use('/v1', routes);
 
+// DELETE ME
+app.get('/api', (req, res) => {
+  res.json({ message: 'Hello from server!' });
+});
+
 // send back a 404 error for any unknown api request
 app.use((req, res, next) => {
   next(new ApiError(httpStatus.NOT_FOUND, 'Not found'));
