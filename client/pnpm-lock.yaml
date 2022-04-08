@@ -2,24 +2,26 @@ lockfileVersion: 5.3
 
 specifiers:
   '@types/node': 17.0.23
-  '@types/react': 17.0.43
-  '@types/react-dom': 17.0.14
+  '@types/react': 18.0.0
+  '@types/react-dom': 18.0.0
   eslint: 8.12.0
   eslint-config-next: 12.1.4
   next: 12.1.4
   react: 18.0.0
   react-dom: 18.0.0
+  swr: ^1.2.2
   typescript: 4.6.3
 
 dependencies:
   next: 12.1.4_react-dom@18.0.0+react@18.0.0
   react: 18.0.0
   react-dom: 18.0.0_react@18.0.0
+  swr: 1.2.2_react@18.0.0
 
 devDependencies:
   '@types/node': 17.0.23
-  '@types/react': 17.0.43
-  '@types/react-dom': 17.0.14
+  '@types/react': 18.0.0
+  '@types/react-dom': 18.0.0
   eslint: 8.12.0
   eslint-config-next: 12.1.4_fab470334d1cc33786399cd971ce0917
   typescript: 4.6.3
@@ -224,20 +226,20 @@ packages:
     resolution: {integrity: sha512-UxDxWn7dl97rKVeVS61vErvw086aCYhDLyvRQZ5Rk65rZKepaFdm53GeqXaKBuOhED4e9uWq34IC3TdSdJJ2Gw==}
     dev: true
 
-  /@types/prop-types/15.7.4:
-    resolution: {integrity: sha512-rZ5drC/jWjrArrS8BR6SIr4cWpW09RNTYt9AMZo3Jwwif+iacXAqgVjm0B0Bv/S1jhDXKHqRVNCbACkJ89RAnQ==}
+  /@types/prop-types/15.7.5:
+    resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
     dev: true
 
-  /@types/react-dom/17.0.14:
-    resolution: {integrity: sha512-H03xwEP1oXmSfl3iobtmQ/2dHF5aBHr8aUMwyGZya6OW45G+xtdzmq6HkncefiBt5JU8DVyaWl/nWZbjZCnzAQ==}
+  /@types/react-dom/18.0.0:
+    resolution: {integrity: sha512-49897Y0UiCGmxZqpC8Blrf6meL8QUla6eb+BBhn69dTXlmuOlzkfr7HHY/O8J25e1lTUMs+YYxSlVDAaGHCOLg==}
     dependencies:
-      '@types/react': 17.0.43
+      '@types/react': 18.0.0
     dev: true
 
-  /@types/react/17.0.43:
-    resolution: {integrity: sha512-8Q+LNpdxf057brvPu1lMtC5Vn7J119xrP1aq4qiaefNioQUYANF/CYeK4NsKorSZyUGJ66g0IM+4bbjwx45o2A==}
+  /@types/react/18.0.0:
+    resolution: {integrity: sha512-7+K7zEQYu7NzOwQGLR91KwWXXDzmTFODRVizJyIALf6RfLv2GDpqpknX64pvRVILXCpXi7O/pua8NGk44dLvJw==}
     dependencies:
-      '@types/prop-types': 15.7.4
+      '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.2
       csstype: 3.0.11
     dev: true
@@ -432,8 +434,8 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
-  /caniuse-lite/1.0.30001325:
-    resolution: {integrity: sha512-sB1bZHjseSjDtijV1Hb7PB2Zd58Kyx+n/9EotvZ4Qcz2K3d0lWB8dB4nb8wN/TsOGFq3UuAm0zQZNQ4SoR7TrQ==}
+  /caniuse-lite/1.0.30001327:
+    resolution: {integrity: sha512-1/Cg4jlD9qjZzhbzkzEaAC2JHsP0WrOc8Rd/3a3LuajGzGWR/hD7TVyvq99VqmTy99eVh8Zkmdq213OgvgXx7w==}
     dev: false
 
   /chalk/4.1.2:
@@ -1206,8 +1208,8 @@ packages:
     dependencies:
       js-tokens: 4.0.0
 
-  /lru-cache/7.7.3:
-    resolution: {integrity: sha512-WY9wjJNQt9+PZilnLbuFKM+SwDull9+6IAguOrarOMoOHTcJ9GnXSO11+Gw6c7xtDkBkthR57OZMtZKYr+1CEw==}
+  /lru-cache/7.8.0:
+    resolution: {integrity: sha512-AmXqneQZL3KZMIgBpaPTeI6pfwh+xQ2vutMsyqOu1TBdEXFZgpG/80wuJ531w2ZN7TI0/oc8CPxzh/DKQudZqg==}
     engines: {node: '>=12'}
     dev: true
 
@@ -1275,7 +1277,7 @@ packages:
         optional: true
     dependencies:
       '@next/env': 12.1.4
-      caniuse-lite: 1.0.30001325
+      caniuse-lite: 1.0.30001327
       postcss: 8.4.5
       react: 18.0.0
       react-dom: 18.0.0_react@18.0.0
@@ -1557,7 +1559,7 @@ packages:
     engines: {node: ^10.0.0 || ^12.0.0 || ^14.0.0 || >=16.0.0}
     hasBin: true
     dependencies:
-      lru-cache: 7.7.3
+      lru-cache: 7.8.0
     dev: true
 
   /shebang-command/2.0.0:
@@ -1661,6 +1663,14 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
     dev: true
+
+  /swr/1.2.2_react@18.0.0:
+    resolution: {integrity: sha512-ky0BskS/V47GpW8d6RU7CPsr6J8cr7mQD6+do5eky3bM0IyJaoi3vO8UhvrzJaObuTlGhPl2szodeB2dUd76Xw==}
+    peerDependencies:
+      react: ^16.11.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.0.0
+    dev: false
 
   /text-table/0.2.0:
     resolution: {integrity: sha1-f17oI66AUgfACvLfSoTsP8+lcLQ=}
