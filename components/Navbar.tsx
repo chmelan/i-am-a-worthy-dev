@@ -4,7 +4,6 @@ import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline';
 import { signIn, signOut, useSession } from 'next-auth/react';
 
-import { useState } from 'react';
 const user = {
   name: 'Tom Cook',
   email: 'tom@example.com',
@@ -18,8 +17,8 @@ const navigation = [
   { name: 'Calendar', href: '#', current: false },
 ];
 const userNavigation = [
-  { name: 'Your Profile', href: '#' },
-  { name: 'Settings', href: '#' },
+  { name: 'Your Profile', href: '/profile' },
+  { name: 'Settings', href: '/settings' },
   { name: 'Sign out', href: '/api/auth/signout' },
 ];
 
@@ -30,6 +29,7 @@ function classNames(...classes: any) {
 export default function NavBar() {
   const { data: session, status } = useSession();
   const loading = status === 'loading';
+
   return (
     <>
       <Disclosure as="nav" className="bg-white border-b border-gray-200">
@@ -102,7 +102,8 @@ export default function NavBar() {
                             />
                           </Menu.Button>
                         </div>
-                        <Transition
+                        {/* Transition is bugged in next JS development mode. Should be funtional when built.  */}
+                        {/* <Transition
                           as={Fragment}
                           enter="transition ease-out duration-200"
                           enterFrom="transform opacity-0 scale-95"
@@ -110,26 +111,26 @@ export default function NavBar() {
                           leave="transition ease-in duration-75"
                           leaveFrom="transform opacity-100 scale-100"
                           leaveTo="transform opacity-0 scale-95"
-                        >
-                          <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-                            {userNavigation.map((item) => (
-                              <Menu.Item key={item.name}>
-                                {({ active }) => (
-                                  <Link href={item.href}>
-                                    <a
-                                      className={classNames(
-                                        active ? 'bg-gray-100' : '',
-                                        'block px-4 py-2 text-sm text-gray-700'
-                                      )}
-                                    >
-                                      {item.name}
-                                    </a>
-                                  </Link>
-                                )}
-                              </Menu.Item>
-                            ))}
-                          </Menu.Items>
-                        </Transition>
+                        > */}
+                        <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                          {userNavigation.map((item) => (
+                            <Menu.Item key={item.name}>
+                              {({ active }) => (
+                                <Link href={item.href}>
+                                  <a
+                                    className={classNames(
+                                      active ? 'bg-gray-100' : '',
+                                      'block px-4 py-2 text-sm text-gray-700'
+                                    )}
+                                  >
+                                    {item.name}
+                                  </a>
+                                </Link>
+                              )}
+                            </Menu.Item>
+                          ))}
+                        </Menu.Items>
+                        {/* </Transition> */}
                       </Menu>
                     </>
                   )}

@@ -10,6 +10,6 @@ declare namespace NodeJS {
     GOOGLE_SECRET: string;
     AUTH0_ID: string;
     AUTH0_SECRET: string;
-    MONGODB_URI: String;
+    MONGODB_URI: string;
   }
 }
