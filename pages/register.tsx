@@ -1,20 +1,4 @@
-/*
-  This example requires Tailwind CSS v2.0+ 
-  
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
-*/
-import { LockClosedIcon } from "@heroicons/react/solid";
+import { LockClosedIcon } from '@heroicons/react/solid';
 
 export default function Register() {
   return (
@@ -39,7 +23,7 @@ export default function Register() {
               Sign in to your account
             </h2>
             <p className="mt-2 text-center text-sm text-gray-600">
-              Or{" "}
+              Or{' '}
               <a
                 href="#"
                 className="font-medium text-indigo-600 hover:text-indigo-500"
