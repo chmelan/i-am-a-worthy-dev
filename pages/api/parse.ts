@@ -1,5 +1,6 @@
 import manifest from "../../lib/data/manifest.json"
 import fs from "fs"
+import { stringify } from "querystring";
 
 //Add empty object to key if key doesn't exist
 const checkObjKey = (key: string, myObject: any) => {
@@ -154,10 +155,26 @@ const parseAbility = (ability: string, card: any) => {
 
     // TODO Add conditional that adds "misc" property to empty cards
 
-
-
-
 };
+
+// parse pilots per ships
+const parseShip = (ship: any) => {
+
+ ship.pilots.map( (pilot: any) => {
+     //parse ship ability
+     if (pilot.shipAbility){
+         parseAbility(pilot.shipAbility.text, pilot)
+     }
+     
+     //parse pilot ability
+     if (pilot.ability){
+        parseAbility(pilot.ability, pilot)
+    }
+   
+        
+ })
+ return ship;
+}
 
 //parse a JSON file of cards
 export const parseCategory = (cards: any) => {
@@ -207,21 +224,24 @@ export const parseAll = () => {
         const key = path.replace('data/upgrades/', '').replace('.json', '')
         const rawdata = fs.readFileSync("./lib/" + path,  'utf-8');
         const parsed = JSON.parse(rawdata);
-        allCards.[key] = parseCategory(parsed)
+        allCards[key] = parseCategory(parsed)
     })
+
 // parse ships
 
     manifest.pilots.map((faction) => {
+        allCards[faction.faction] = {}
         faction.ships.map(path => {
+            const shipKey = path.replace('data/pilots/', '').replace('.json', '').replace('', '')
             let rawdata = fs.readFileSync("./lib/" + path,  'utf-8');
 
             let parsed = JSON.parse(rawdata);
-            console.log(path)
+            allCards[faction.faction][shipKey] = parseShip(parsed)
         })
 
     })
-    // console.log(allCards);
-
+    fs.writeFileSync("output.json", JSON.stringify(allCards))
+    console.log("completed parsing")
 }
 
 
