@@ -7,4 +7,5 @@ declare module 'next-auth/jwt' {
     /** The user's role. */
     userRole?: 'admin';
   }
+  
 }
