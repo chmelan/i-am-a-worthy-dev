@@ -1,6 +1,8 @@
 import manifest from "../../lib/data/manifest.json"
 import fs from "fs"
-import { stringify } from "querystring";
+
+
+const parsedOutput = []
 
 //Add empty object to key if key doesn't exist
 const checkObjKey = (key: string, myObject: any) => {
@@ -154,7 +156,7 @@ const parseAbility = (ability: string, card: any) => {
     }
 
     // TODO Add conditional that adds "misc" property to empty cards
-
+    
 };
 
 // parse pilots per ships
@@ -178,6 +180,8 @@ const parseShip = (ship: any) => {
 
 //parse a JSON file of cards
 export const parseCategory = (cards: any) => {
+    
+   
     // map through all cards
 
     cards.map((card: any) => {
@@ -210,13 +214,16 @@ export const parseCategory = (cards: any) => {
 // Parse the entire X Wing collection 
 export const parseAll = () => {
     // initialize data container
-    const allCards = { 
+    const parsedOutput = []
+    const allCards = []
 
-}
 // parse conditions
     const rawdata = fs.readFileSync("./lib/" + manifest.conditions,  'utf-8');
     const parsedCond = JSON.parse(rawdata);
-    allCards["conditions"] = parseCategory(parsedCond)
+    parseCategory(parsedCond).map((item) => {
+        allCards.push(item)
+    })
+   
 
 
 // parse upgrades
@@ -224,7 +231,10 @@ export const parseAll = () => {
         const key = path.replace('data/upgrades/', '').replace('.json', '')
         const rawdata = fs.readFileSync("./lib/" + path,  'utf-8');
         const parsed = JSON.parse(rawdata);
-        allCards[key] = parseCategory(parsed)
+
+        parseCategory(parsed).map((item) => {
+            allCards.push(item)
+        })
     })
 
 // parse ships
@@ -236,7 +246,9 @@ export const parseAll = () => {
             let rawdata = fs.readFileSync("./lib/" + path,  'utf-8');
 
             let parsed = JSON.parse(rawdata);
-            allCards[faction.faction][shipKey] = parseShip(parsed)
+            
+        console.log(parseShip(parsed))
+            allCards.push(parseShip(parsed))
         })
 
     })
