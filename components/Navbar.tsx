@@ -52,9 +52,9 @@ export default function NavBar() {
                   </div>
                   <div className="hidden sm:-my-px sm:ml-6 sm:flex sm:space-x-8">
                     {navigation.map((item) => (
-                      <Link href={item.href}>
+                      <Link href={item.href} key={item.name}>
                         <a
-                          key={item.name}
+                          
                           className={classNames(
                             item.current
                               ? 'border-indigo-500 text-gray-900'
