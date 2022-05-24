@@ -1,4 +1,4 @@
-export default function Settings() {
+export default function TermsOfUse() {
   return (
     <form className="space-y-8 divide-y divide-gray-200">
       <div className="space-y-8 divide-y divide-gray-200">
@@ -48,7 +48,7 @@ export default function Settings() {
                   name="about"
                   rows={3}
                   className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-300 rounded-md"
-                  defaultValue={""}
+                  defaultValue={''}
                 />
               </div>
               <p className="mt-2 text-sm text-gray-500">
