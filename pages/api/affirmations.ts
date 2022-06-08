@@ -9,7 +9,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
 
   if (affirmation) {
-    res.status(200).json(affirmation.content);
+    res.status(200).send(affirmation.content);
   }
   else {
     res.status(404).send("Sorry, we couldn't find an affirmation for you")
